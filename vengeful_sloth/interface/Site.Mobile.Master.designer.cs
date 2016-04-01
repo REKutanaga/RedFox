@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace interface {
+namespace interfacing {
     
     
     public partial class Site_Mobile {

@@ -2,6 +2,8 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #291d2e;
+    color: #ffffff;
 }
 
 /* Wrapping element */
@@ -9,6 +11,8 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #291d2e;
+    color: #ffffff;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -16,16 +20,26 @@ input,
 select,
 textarea {
     max-width: 280px;
+    background-color: #291d2e;
+    color: #ffffff;
 }
 
+.btn-norm {
+    background-color: #5C3A5C;
+    color: #ffffff;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
         margin-top: 20px;
+        background-color: #291d2e;
+        color: #ffffff;
     }
 
     .body-content {
         padding: 0;
+        background-color: #291d2e;
+        color: #ffffff;
     }
 }

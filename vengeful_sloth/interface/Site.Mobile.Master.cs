@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace interfacing
+namespace interface
 {
     public partial class Site_Mobile : System.Web.UI.MasterPage
     {

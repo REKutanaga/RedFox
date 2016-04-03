@@ -1,6 +1,6 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
+/* Move down content because we have a fixed navbar that is 60px tall */
 body {
-    padding-top: 50px;
+    padding-top: 60px;
     padding-bottom: 20px;
     background-color: #291d2e;
     color: #ffffff;
@@ -11,6 +11,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 50px;
     background-color: #291d2e;
     color: #ffffff;
 }
@@ -24,22 +25,122 @@ textarea {
     color: #ffffff;
 }
 
-.btn-norm {
-    background-color: #5C3A5C;
-    color: #ffffff;
+.jumbotron {
+    background-color: #291d2e;
+        color: #ffffff;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
         margin-top: 20px;
-        background-color: #291d2e;
-        color: #ffffff;
     }
 
     .body-content {
         padding: 0;
-        background-color: #291d2e;
-        color: #ffffff;
     }
+}
+
+.sitefooter {
+    text-align:right;
+    text-indent:50px;
+    position:absolute;
+    width:100%;
+    height:35px;
+    z-index:1000;
+    right:0px;
+    bottom:0px;
+    background-color:#222222;
+    border-top: 1px solid #000000;
+    color:#999999;
+}
+
+.btn-norm {
+    background-color: #5C3A5C;
+    color: #ffffff;
+    border-radius: 0px 0px;
+}
+
+.btn-navbar {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 10px solid black;
+
+    
+
+    /*position:absolute;*/
+}
+
+#nav .active {
+    background-color: white;
+}
+
+#nav a:hover {
+    background-color: red;
+}
+
+#loader {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+      0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+      0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+      0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#mainDiv {
+     -webkit-animation: fadein 1s;
+        -moz-animation: fadein 1s;
+          -o-animation: fadein 1s;
+             animation: fadein 1s;
+}
+
+@-webkit-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
 }

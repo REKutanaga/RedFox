@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CAPSAM.SiteMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CAPSAM.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -17,8 +17,21 @@
 
 </head>
 <body>
+    <script>
+        var delayVar;
+
+        function switchLoader() {
+            //alert('Loading...');
+            delayVar = setTimeout(showPage, 3000);
+        }
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("mainDiv").style.display = "block";
+        }
+    </script>
+
     <form runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager EnablePartialRendering="true" ID="ScriptManager1" runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -39,7 +52,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div style="height: 60px;" class="navbar navbar-inverse navbar-fixed-top">
+        <div style="height: 60px; padding-left: 0; margin-left: 0" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,26 +60,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">CAPSAM<br /><small><sup>Test Build</sup></small></a>
+                    <a class="navbar-brand" runat="server" href="~/">CAPSAM<br /><small>Test Build</small></a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    <ul class="nav navbar-nav" id="nav">
+                        <li><a runat="server" style="height:60px; border-right-width: 1px;" class="btn-navbar" href="~/Default">Home</a></li>
+                        <li><a runat="server" style="height:60px; border-left-width: 1px; border-right-width: 1px;" class="btn-navbar" href="~/About">About</a></li>
+                        <li><a runat="server" style="height:60px; border-left-width: 1px;" class="btn-navbar" href="~/Contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div id="loader" style="display:normal"></div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&#9728; <%: DateTime.Now.Year %> -- Ellert Industrial</p>
+            <div id="mainDiv" style="display:none;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div>
+            <footer class="sitefooter">
+                <p style="line-height:20px; bottom:0px; padding-right:25px; padding-bottom:0px;">&#9728; <%: DateTime.Now.Year %> -- Ellert Industrial</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

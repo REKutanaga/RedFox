@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,16 +9,37 @@ namespace CAPSAM
 {
     public partial class _Default : Page
     {
-        private bool toggle;
+        //public Control button;
+        public bool show = false;
+        public int num = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            toggle = false;
+            if(!IsPostBack)
+            {
+                Response.Write("The Page Loaded at: " + DateTime.Now.ToLongTimeString());
+
+                try
+                {
+                    //lblPanel1.Text = DateTime.Now.ToLongTimeString();
+                    //lblPanel2.Text = DateTime.Now.ToLongTimeString();
+                }
+
+                catch(Exception error)
+                {
+                    Response.Write("Error : " + error.Message);
+                }
+            }
+            else
+            {
+                num = 0;
+            }
         }
 
-        protected void ToggleDisp(object sender, EventArgs e)
+        public void btnPanel_Click(Object sender, EventArgs e)
         {
-            FindControl("toggledButton").Visible = !toggle;
+            num++;
+            Label1.Text = num.ToString();
         }
     }
 }

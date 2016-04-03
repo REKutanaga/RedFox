@@ -9,9 +9,16 @@ namespace CAPSAM
 {
     public partial class _Default : Page
     {
+        private bool toggle;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            toggle = false;
+        }
 
+        protected void ToggleDisp(object sender, EventArgs e)
+        {
+            FindControl("toggledButton").Visible = !toggle;
         }
     }
 }

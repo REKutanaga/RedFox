@@ -5,7 +5,19 @@
     <div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><button class="btn btn-norm btn-lg">Click &raquo;</button></p>
+        <p>&nbsp;</p>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="col-md-4">
+                <button class="btn btn-norm btn-lg" onclick="ToggleDisp">
+                    Click &raquo;
+                </button>
+                </div>
+                <div class="col-md-4">
+                    <button id="toggledButton" class="btn btn-norm btn-lg">hello</button>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 
     <div class="row">

@@ -2,8 +2,17 @@
 body {
     padding-top: 60px;
     padding-bottom: 20px;
-    background-color: #291d2e;
     color: #ffffff;
+    background-image:url('../Images/vengeful_slothPurple.png');
+    background-color:#180c1d;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+    background-size:initial;
+    background-position:left top;
+}
+
+.alphaBG, .jumbotron {
+    background-color:rgba(41,29,46,0.1);
 }
 
 /* Wrapping element */
@@ -12,7 +21,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 50px;
-    background-color: #291d2e;
+    background-color:rgba(41,29,46,0.5);
     color: #ffffff;
 }
 
@@ -26,7 +35,7 @@ textarea {
 }
 
 .jumbotron {
-    background-color: #291d2e;
+    /*background-color: #291d2e;*/
         color: #ffffff;
 }
 
@@ -62,13 +71,14 @@ textarea {
 }
 
 .btn-navbar {
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    border-bottom: 10px solid black;
+    border-left: 1px solid #444444;
+    border-right: 1px solid #444444;
+    height:59px;
+}
 
-    
-
-    /*position:absolute;*/
+.bar-navbar {
+    height:60px;
+    border-bottom: 1px solid black;
 }
 
 #nav .active {

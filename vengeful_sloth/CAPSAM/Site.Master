@@ -52,7 +52,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div style="height: 60px; padding-left: 0; margin-left: 0" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top bar-navbar">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -64,16 +64,17 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" id="nav">
-                        <li><a runat="server" style="height:60px; border-right-width: 1px;" class="btn-navbar" href="~/Default">Home</a></li>
-                        <li><a runat="server" style="height:60px; border-left-width: 1px; border-right-width: 1px;" class="btn-navbar" href="~/About">About</a></li>
-                        <li><a runat="server" style="height:60px; border-left-width: 1px;" class="btn-navbar" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" style="border-left-width: 2px;" class="btn-navbar" href="~/Default">Home</a></li>
+                        <li><a runat="server" class="btn-navbar" href="~/About">About</a></li>
+                        <li><a runat="server" class="btn-navbar" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" style="border-right-width: 2px;" class="btn-navbar" href="~/ViewData">View Data</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div id="loader" style="display:normal"></div>
+        <div id="loader" style="display:none"></div><%--display:initial for normal operation--%>
         <div class="container body-content">
-            <div id="mainDiv" style="display:none;">
+            <div id="mainDiv" style="display:initial;"><%--display:none for normal operation--%>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
             </div>

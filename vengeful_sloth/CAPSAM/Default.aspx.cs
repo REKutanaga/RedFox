@@ -15,30 +15,20 @@ namespace CAPSAM
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if(ViewState["numValue"] != null)
             {
-                Response.Write("The Page Loaded at: " + DateTime.Now.ToLongTimeString());
-
-                try
-                {
-                    //lblPanel1.Text = DateTime.Now.ToLongTimeString();
-                    //lblPanel2.Text = DateTime.Now.ToLongTimeString();
-                }
-
-                catch(Exception error)
-                {
-                    Response.Write("Error : " + error.Message);
-                }
+                num = (int)ViewState["numValue"];
             }
             else
             {
-                num = 0;
+                Label1.Text = num.ToString();
             }
         }
 
         public void btnPanel_Click(Object sender, EventArgs e)
         {
             num++;
+            ViewState["numValue"] = num;
             Label1.Text = num.ToString();
         }
     }

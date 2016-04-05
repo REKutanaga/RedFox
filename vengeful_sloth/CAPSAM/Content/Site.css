@@ -1,7 +1,14 @@
+html,body,form {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    width:100%;
+}
+
 /* Move down content because we have a fixed navbar that is 60px tall */
 body {
     padding-top: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     color: #ffffff;
     background-image:url('../Images/vengeful_slothPurple.png');
     background-color:#180c1d;
@@ -11,6 +18,23 @@ body {
     background-position:left top;
 }
 
+.fillBG {
+    min-height:5000px;
+    height:auto;
+    width:100%;
+    position:center;
+}
+
+/* match with body padding-top */
+.bar-navbar {
+    height:60px;
+}
+
+/* match with .body-content padding-bottom */
+.sitefooter {
+        height:25px;
+}
+
 .alphaBG, .jumbotron {
     background-color:rgba(41,29,46,0.1);
 }
@@ -18,11 +42,13 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
+    margin:0;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 50px;
     background-color:rgba(41,29,46,0.5);
     color: #ffffff;
+    min-width:100%;
+    width:auto;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -45,23 +71,66 @@ textarea {
         margin-top: 20px;
     }
 
-    .body-content {
-        padding: 0;
+    #navMain {
+        position:fixed;
+        left:120px;
     }
+}
+
+@media screen and (max-width: 767px) {
+    #nav {
+        margin:0;
+        padding:0;
+        width:100%;
+        border:1px solid black;
+        box-shadow:rgba(0,0,0,0.1) 0 1px inset;
+        background-color:#222222;
+    }
+
+    #navMain {
+        border-top:0;
+        margin-top: 9px;
+        width: 300px;
+        position: absolute;
+        right: 20px;
+        box-shadow:unset;
+    }
+
+    .navbar li a {
+        border:0;
+        margin:0;
+        padding:5px 20px 0 20px;
+        height:30px;
+        background-clip:border-box;
+    }
+}
+
+.content-center {
+    margin-left:25px;
+    margin-right:25px;
 }
 
 .sitefooter {
     text-align:right;
     text-indent:50px;
-    position:absolute;
+    position:fixed;
+    overflow:hidden;
     width:100%;
-    height:35px;
     z-index:1000;
     right:0px;
     bottom:0px;
     background-color:#222222;
     border-top: 1px solid #000000;
     color:#999999;
+    padding-right:20px;
+    line-height:10px;
+    text-overflow:clip;
+}
+
+.navbar-brand {
+    color:#999999 !important;
+    position:fixed;
+    left:30px;
 }
 
 .btn-norm {
@@ -71,22 +140,31 @@ textarea {
 }
 
 .btn-navbar {
-    border-left: 1px solid #444444;
-    border-right: 1px solid #444444;
     height:59px;
 }
 
 .bar-navbar {
-    height:60px;
     border-bottom: 1px solid black;
 }
 
-#nav .active {
-    background-color: white;
+#active {
+    background-color: rgb(255,200,80);
+    color:white;
+}
+#active:hover {
+    background-color: rgb(255,200,127) !important;
+}
+
+#nav a {
+    -webkit-transition:0.04s;
+    -moz-transition:0.04s;
+    -o-transition:0.04s;
+    transition:0.04s;
 }
 
 #nav a:hover {
-    background-color: red;
+    background-color:rgb(255,0,0);
+    color:white;
 }
 
 #loader {

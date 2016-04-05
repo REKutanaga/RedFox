@@ -152,10 +152,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Images\vengeful sloth100.png" />
-    <Content Include="Images\vengeful_sloth70.png" />
     <Content Include="Images\vengeful_slothPurple.png" />
-    <Content Include="Images\vengeful_slothPurple2.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />

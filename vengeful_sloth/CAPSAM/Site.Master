@@ -16,17 +16,49 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body onload="setCurrentActive()">
     <script>
-        var delayVar;
 
         function switchLoader() {
             //alert('Loading...');
-            delayVar = setTimeout(showPage, 3000);
+            
+            var delayVar = setTimeout(showPage, 3000);
         }
+
         function showPage() {
             document.getElementById("loader").style.display = "none";
             document.getElementById("mainDiv").style.display = "block";
+            //alert("hello");
+        }
+
+        function setCurrentActive() {
+            var url = window.location.pathname;
+            var pageName = url.substring(url.lastIndexOf('/') + 1);
+            var navLinks = document.getElementById("nav").children;
+            var navBtns = [];
+            var navBtnRef = [];
+            navBtns.length = 4;
+            navBtnRef.length = 4;
+            //alert("hello");
+            //alert(navLinks.length);
+            
+            if (navLinks.length > 0) {
+                for (i = 0; i < navLinks.length; i++) {
+                    navBtns[i] = navLinks[i].firstElementChild;
+                    navBtnRef[i] = navBtns[i].getAttribute("href");
+                }
+            }
+            //alert(pageName);
+            if (navBtns.length > 0) {
+                for (i = 0; i < navBtns.length; i++) {
+                    if (navBtnRef[i] == pageName) {
+                        navBtns[i].id = "active";
+                        break;
+                    }
+
+                }
+                //alert(navBtns[0].id);
+            }
         }
     </script>
 
@@ -60,28 +92,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">CAPSAM<br /><small>Test Build</small></a>
+                    <a class="navbar-brand" runat="server" href="~/Default">CAPSAM<br /><small>Test Build</small></a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav" id="nav">
-                        <li><a runat="server" style="border-left-width: 2px;" class="btn-navbar" href="~/Default">Home</a></li>
-                        <li><a runat="server" class="btn-navbar" href="~/About">About</a></li>
-                        <li><a runat="server" class="btn-navbar" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" style="border-right-width: 2px;" class="btn-navbar" href="~/ViewData">View Data</a></li>
+                <div id="navMain" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" id="nav" runat="server">
+                        <li><a id="link1" runat="server" class="btn-navbar" href="~/Default">Home</a></li>
+                        <li><a id="link2" runat="server" class="btn-navbar" href="~/About">About</a></li>
+                        <li><a id="link3" runat="server" class="btn-navbar" href="~/Contact">Contact</a></li>
+                        <li><a id="link4" runat="server" class="btn-navbar" href="~/ViewData">View Data</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div id="loader" style="display:none"></div><%--display:initial for normal operation--%>
-        <div class="container body-content">
-            <div id="mainDiv" style="display:initial;"><%--display:none for normal operation--%>
+        <div id="loader" style="display:none;"></div><%--display:initial for normal operation--%>
+        <div id="contentDiv" class="container body-content">
+            <div id="mainDiv" style="display:initial; overflow:auto;"><%--display:none for normal operation--%>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
+            <div class="fillBG""></div>
         </div>
         <div>
-            <footer class="sitefooter">
-                <p style="line-height:20px; bottom:0px; padding-right:25px; padding-bottom:0px;">&#9728; <%: DateTime.Now.Year %> -- Ellert Industrial</p>
+            <footer class="sitefooter" style="padding-top:7px;">
+                <p>&#9728; <%: DateTime.Now.Year %> -- Ellert Industrial</p>
             </footer>
         </div>
     </form>

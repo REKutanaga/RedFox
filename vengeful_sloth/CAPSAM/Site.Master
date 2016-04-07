@@ -40,7 +40,7 @@
             navBtns.length = 4;
             navBtnRef.length = 4;
             //alert("hello");
-            //alert(navLinks.length);
+            //alert(navBtnRef.length);
             
             if (navLinks.length > 0) {
                 for (i = 0; i < navLinks.length; i++) {
@@ -106,11 +106,9 @@
         </div>
         <div id="loader" style="display:none;"></div><%--display:initial for normal operation--%>
         <div id="contentDiv" class="container body-content">
-            <div id="mainDiv" style="display:initial; overflow:auto;"><%--display:none for normal operation--%>
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
+            <div id="mainDiv" style="display:initial;"><%--display:none for normal operation--%>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             </div>
-            <div class="fillBG""></div>
         </div>
         <div>
             <footer class="sitefooter" style="padding-top:7px;">

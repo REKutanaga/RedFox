@@ -1,28 +1,24 @@
 html,body,form {
     margin:0;
     padding:0;
-    overflow:hidden;
-    width:100%;
+    overflow:auto;
+    width:auto;
+    height:auto;
 }
 
 /* Move down content because we have a fixed navbar that is 60px tall */
 body {
     padding-top: 60px;
-    padding-bottom: 35px;
-    color: #ffffff;
+    padding-bottom: 26px;
+    
     background-image:url('../Images/vengeful_slothPurple.png');
     background-color:#180c1d;
     background-repeat:no-repeat;
-    background-attachment:scroll;
+    background-attachment:fixed;
     background-size:initial;
     background-position:left top;
-}
 
-.fillBG {
-    min-height:5000px;
-    height:auto;
-    width:100%;
-    position:center;
+    color:#ffffff;
 }
 
 /* match with body padding-top */
@@ -35,21 +31,51 @@ body {
         height:25px;
 }
 
-.alphaBG, .jumbotron {
-    background-color:rgba(41,29,46,0.1);
-}
-
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     margin:0;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color:rgba(41,29,46,0.5);
+    padding:0;
     color: #ffffff;
     min-width:100%;
     width:auto;
+    height:auto;
+    overflow:hidden;
 }
+
+.body-container {
+    margin-top:15px;
+
+    position:static;
+    width:auto;
+    height:auto;
+
+    overflow:auto;
+}
+
+.data-container {
+
+
+    width:100%;
+    height:auto;
+
+}
+
+.datagrid1 {
+    background-color:rgba(255,255,255,0.2);
+    padding:10px;
+    padding-top:10px;
+    display:inline-block;
+    overflow:auto;
+    float:left;
+}
+
+.search-container {
+    text-align:right;
+    padding-bottom:10px;
+}
+
+
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -60,54 +86,97 @@ textarea {
     color: #ffffff;
 }
 
-.jumbotron {
-    /*background-color: #291d2e;*/
-        color: #ffffff;
+.container .jumbotron {
+         background-color: rgba(255,255,255,0.2);
+                    color: #ffffff;
+
+    -webkit-border-radius:0px;
+       -moz-border-radius:0px;
+            border-radius:0px;  
+}
+
+.jumbotron-head {
+    background-color: rgba(255,255,255,0.2);
+               color: #ffffff;
+
+               position:static;
+
+               width:465px;
+               height:120px;
+
+       display:inline-block;
+
+       text-align:center;
+       
+}
+
+.jumbotron-head div {
+    display:inline-block;
+    padding-top:16px;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
+    .hide-behind {
+                height:200px;
+        padding-bottom:20px;
     }
 
     #navMain {
         position:fixed;
         left:120px;
     }
+
+    #active {
+        box-shadow: inset 0px -5px 0px 0px #888888;
+    }
 }
 
 @media screen and (max-width: 767px) {
+    .hide-behind {
+                height:120px;
+        padding-bottom:20px;
+    }
+
+    .navbar-toggle {
+        left:0;
+        border-radius:0px;
+        position:absolute;
+    }
+
+    .icon-bar {
+        background-color:transparent;
+    }
+
     #nav {
         margin:0;
         padding:0;
         width:100%;
         border:1px solid black;
-        box-shadow:rgba(0,0,0,0.1) 0 1px inset;
+        border-top:0;
         background-color:#222222;
+        overflow:hidden;
     }
 
     #navMain {
+        margin-top:60px;
+        left:0;
         border-top:0;
-        margin-top: 9px;
-        width: 300px;
         position: absolute;
-        right: 20px;
         box-shadow:unset;
     }
 
     .navbar li a {
         border:0;
         margin:0;
-        padding:5px 20px 0 20px;
+        padding:2px 20px 10px 20px;
         height:30px;
         background-clip:border-box;
     }
-}
 
-.content-center {
-    margin-left:25px;
-    margin-right:25px;
+    #active {
+        box-shadow: inset 5px 0px 0px 0px #888888;
+    }
 }
 
 .sitefooter {
@@ -122,15 +191,23 @@ textarea {
     background-color:#222222;
     border-top: 1px solid #000000;
     color:#999999;
-    padding-right:20px;
-    line-height:10px;
     text-overflow:clip;
+    height:26px;
+}
+
+.sitefooter p {
+    position:absolute;
+    top:2px;
+    right:20px;
 }
 
 .navbar-brand {
     color:#999999 !important;
     position:fixed;
-    left:30px;
+    right:0;
+    margin:0;
+    padding-top:10px;
+    padding-right:10px;
 }
 
 .btn-norm {
@@ -140,7 +217,8 @@ textarea {
 }
 
 .btn-navbar {
-    height:59px;
+    height:60px;
+    border-bottom:1px solid black;
 }
 
 .bar-navbar {
@@ -148,14 +226,22 @@ textarea {
 }
 
 #active {
-    background-color: rgb(255,200,80);
+    background-color:#444444;
     color:white;
+    
 }
+
 #active:hover {
-    background-color: rgb(255,200,127) !important;
+    background-color:#555555 !important;
 }
 
 #nav a {
+    background-clip:padding-box;
+    padding:18px;
+    width:auto;
+
+    border:unset !important;
+
     -webkit-transition:0.04s;
     -moz-transition:0.04s;
     -o-transition:0.04s;
@@ -163,12 +249,13 @@ textarea {
 }
 
 #nav a:hover {
-    background-color:rgb(255,0,0);
+    background-color:#333333;
+
     color:white;
 }
 
 #loader {
-    position:absolute;
+    position:fixed;
     left: 50%;
     top: 50%;
     z-index: 1;

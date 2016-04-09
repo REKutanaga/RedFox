@@ -15,8 +15,8 @@ body {
     background-color:#180c1d;
     background-repeat:no-repeat;
     background-attachment:fixed;
-    background-size:initial;
-    background-position:left top;
+    background-size:90vmin;
+    background-position:right top;
 
     color:#ffffff;
 }
@@ -50,31 +50,55 @@ body {
     width:auto;
     height:auto;
 
-    overflow:auto;
+    overflow:hidden;
 }
 
 .data-container {
-
-
-    width:100%;
+    background-color:rgba(255,255,255,0.2);
+    left:0;
+    max-width:70vw;
+    max-height:73.4vh;
     height:auto;
 
+    padding:1vmin;
+
+    overflow:hidden;
 }
 
 .datagrid1 {
-    background-color:rgba(255,255,255,0.2);
-    padding:10px;
-    padding-top:10px;
     display:inline-block;
     overflow:auto;
     float:left;
+    height:auto;
+    max-width:69vw;
 }
 
 .search-container {
     text-align:right;
-    padding-bottom:10px;
+    padding-bottom:1vmin;
 }
 
+.datagrid-header {
+    text-align:center;
+    min-width:6ex;
+    font-size:1.5vh;
+}
+
+.datagrid-longitem,
+.datagrid-numberitem {
+    font-size:1.5vh;
+}
+
+.datagrid-longitem {
+    min-width:18vw;
+    max-width:18vw;
+    padding-left:1ex;
+}
+
+.datagrid-numberitem {
+    text-align:center;
+    min-width:4vw;
+}
 
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -96,18 +120,9 @@ textarea {
 }
 
 .jumbotron-head {
-    background-color: rgba(255,255,255,0.2);
-               color: #ffffff;
+        display:inline-block;
 
-               position:static;
-
-               width:465px;
-               height:120px;
-
-       display:inline-block;
-
-       text-align:center;
-       
+           text-align:center;
 }
 
 .jumbotron-head div {
@@ -117,6 +132,16 @@ textarea {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
+    .jumbotron-head {
+    background-color: rgba(255,255,255,0.2);
+               color: #ffffff;
+
+               position:static;
+
+               width:465px;
+               height:120px;
+}
+
     .hide-behind {
                 height:200px;
         padding-bottom:20px;
@@ -132,20 +157,45 @@ textarea {
     }
 }
 
+/* for smaller views / mobile */
 @media screen and (max-width: 767px) {
+    .jumbotron-head {
+        position:fixed;
+        z-index:1200;
+
+        top:-25px;
+        left:65px;
+
+        color:#888888;
+    }
+
     .hide-behind {
                 height:120px;
         padding-bottom:20px;
     }
 
     .navbar-toggle {
-        left:0;
+        left:10px;
+        top:4px;
         border-radius:0px;
         position:absolute;
+        width:auto;
+        height:auto;
+        text-align:center;
+    }
+
+    .navbar-toggle:hover {
+        background-color:transparent !important;
+    }
+
+    .navbar-toggle:focus {
+        background-color:transparent !important;
     }
 
     .icon-bar {
-        background-color:transparent;
+        width:auto;
+        height:auto;
+        min-height:4px;
     }
 
     #nav {
@@ -168,8 +218,9 @@ textarea {
 
     .navbar li a {
         border:0;
-        margin:0;
-        padding:2px 20px 10px 20px;
+        margin:0px;
+        text-align:left;
+        line-height:0;
         height:30px;
         background-clip:border-box;
     }
@@ -318,4 +369,68 @@ textarea {
 @keyframes fadein {
     from    { opacity: 0; }
     to      { opacity: 1; }
+}
+
+
+/* animate toggle icon */
+.navbar-toggle {
+    border:none;
+    background:transparent !important;
+}
+
+.navbar-toggle:hover {
+    border:none;
+    background:transparent !important;
+}
+
+.navbar .navbar-toggle .icon-bar {
+    background-color:#888888;
+}
+
+.navbar-toggle .icon-bar {
+    min-width:30px !important;
+
+    -webkit-transition: all 0.2s;
+       -moz-transition: all 0.2s;
+         -o-transition: all 0.2s;
+            transition: all 0.2s;
+}
+
+.navbar-toggle .top-bar {
+
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+
+    -webkit-transform-origin:10% 10%;
+       -moz-transform-origin:10% 10%;
+         -o-transform-origin:10% 10%;
+            transform-origin:10% 10%;
+}
+
+.navbar-toggle .middle-bar {
+    opacity:0;
+}
+
+.navbar-toggle .bottom-bar {
+
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.navbar-toggle.collapsed .icon-bar {
+    min-width:22px !important;
+}
+
+.navbar-toggle.collapsed .top-bar {
+    transform:rotate(0);
+}
+
+.navbar-toggle.collapsed .middle-bar {
+    opacity:1;
+}
+
+.navbar-toggle.collapsed .bottom-bar {
+    transform:rotate(0);
 }

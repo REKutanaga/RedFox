@@ -15,52 +15,11 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <script type="text/javascript" src="/Scripts/Custom/setCurrentActiveTab.js"></script>
+    <script type="text/javascript" src="/Scripts/Custom/loader.js"></script>
+
 </head>
 <body onload="setCurrentActive()">
-    <script>
-
-        function switchLoader() {
-            //alert('Loading...');
-            
-            var delayVar = setTimeout(showPage, 3000);
-        }
-
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("mainDiv").style.display = "block";
-            //alert("hello");
-        }
-
-        function setCurrentActive() {
-            var url = window.location.pathname;
-            var pageName = url.substring(url.lastIndexOf('/') + 1);
-            var navLinks = document.getElementById("nav").children;
-            var navBtns = [];
-            var navBtnRef = [];
-            navBtns.length = 4;
-            navBtnRef.length = 4;
-            //alert("hello");
-            //alert(navBtnRef.length);
-            
-            if (navLinks.length > 0) {
-                for (i = 0; i < navLinks.length; i++) {
-                    navBtns[i] = navLinks[i].firstElementChild;
-                    navBtnRef[i] = navBtns[i].getAttribute("href");
-                }
-            }
-            //alert(pageName);
-            if (navBtns.length > 0) {
-                for (i = 0; i < navBtns.length; i++) {
-                    if (navBtnRef[i] == pageName) {
-                        navBtns[i].id = "active";
-                        break;
-                    }
-
-                }
-                //alert(navBtns[0].id);
-            }
-        }
-    </script>
 
     <form runat="server">
         <asp:ScriptManager EnablePartialRendering="true" ID="ScriptManager1" runat="server">
@@ -84,15 +43,16 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top bar-navbar">
-            <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top bar-navbar">
+            <div class="container fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar top-bar"></span>
+                        <span class="icon-bar middle-bar"></span>
+                        <span class="icon-bar bottom-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Default">CAPSAM<br /><small>Test Build</small></a>
+                    <a class="navbar-brand" href="~/Default">CAPSAM<br /><small>Test Build</small></a>
                 </div>
                 <div id="navMain" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" id="nav" runat="server">
@@ -103,7 +63,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
         <div id="loader" style="display:none;"></div><%--display:initial for normal operation--%>
         <div id="contentDiv" class="container body-content">
             <div id="mainDiv" style="display:initial;"><%--display:none for normal operation--%>

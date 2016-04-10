@@ -12,7 +12,7 @@
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-                
+
                 <div class="data-container">
 
                     <div class="search-container">
@@ -29,10 +29,10 @@
                             DataSourceID="MySqlCustomerData" AutoGenerateColumns="False" 
                             BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" 
                             BorderWidth="1px" CellPadding="4" DataKeyNames="ID" 
-                            ForeColor="Black" GridLines="Both" 
+                            ForeColor="Black" 
                             AllowPaging="True" AllowSorting="True">
                             <Columns>
-                                <asp:BoundField HeaderStyle-CssClass="datagrid-header" ItemStyle-CssClass="datagrid-numberitem" DataField="ID" HeaderText="ID" SortExpression="ID" DataFormatString="{0:d4}" ReadOnly="True" />
+                                <asp:BoundField HeaderStyle-CssClass="datagrid-header" ItemStyle-CssClass="datagrid-numberitem" DataField="ID" HeaderText="ID" SortExpression="ID" DataFormatString="{0:d6}" ReadOnly="True" />
                                 <asp:BoundField HeaderStyle-CssClass="datagrid-header" ItemStyle-CssClass="datagrid-longitem" DataField="Name" HeaderText="Name" SortExpression="Name" />
                                 <asp:BoundField HeaderStyle-CssClass="datagrid-header" ItemStyle-CssClass="datagrid-longitem" DataField="Address" HeaderText="Address" SortExpression="Address" />
                                 <asp:BoundField HeaderStyle-CssClass="datagrid-header" ItemStyle-CssClass="datagrid-numberitem" DataField="Contact Name" HeaderText="Contact Name" SortExpression="Contact Name" />
@@ -53,15 +53,37 @@
                         </asp:GridView>
                         <asp:SqlDataSource ID="MySqlCustomerData" runat="server" 
                             ConnectionString="server=localhost;user id=remotecustomer;persistsecurityinfo=True;database=customer;password=remotecustomer" 
-                            ProviderName="MySql.Data.MySqlClient" SelectCommand="CALL get_data_at_id_name_addr_with_aliases('');"></asp:SqlDataSource>
+                            ProviderName="MySql.Data.MySqlClient" SelectCommand="CALL get_data_at_id_name_addr_with_aliases('');" InsertCommand="add_data('999','oiheqwgi','poijqwef','likjef','oiwjef','1','1','1','1');" InsertCommandType="StoredProcedure">
+                            <InsertParameters>
+                                <asp:ControlParameter ControlID="cuIdTextBox" Name="cuId" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="cuNameTextBox" Name="cuName" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="cuAddrTextBox" Name="cuAddr" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="coNameTextBox" Name="coName" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="cuNumTextBox" Name="cuNum" PropertyName="Text" Type="String" />
+                                <asp:ControlParameter ControlID="orOpenTextBox" Name="orOpen" PropertyName="Text" Type="Int32" />
+                                <asp:ControlParameter ControlID="orSchedTextBox" Name="orSched" PropertyName="Text" Type="Int32" />
+                                <asp:ControlParameter ControlID="orProgTextBox" Name="orProg" PropertyName="Text" Type="Int32" />
+                                <asp:ControlParameter ControlID="orCompTextBox" Name="orComp" PropertyName="Text" Type="Int32" />
+                            </InsertParameters>
+                            </asp:SqlDataSource>
                     
                         </div>
 
                     </div>
 
-                </div>
+                    <div class="addData-container"><h1>Add/Modify Entry</h1><hr />
+                        <div id="cuId"><asp:Label CssClass="l" runat="server" Text="Customer ID"></asp:Label><br /><asp:TextBox ID="cuIdTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="cuName"><asp:Label CssClass="l" runat="server" Text="Customer Name"></asp:Label><br /><asp:TextBox ID="cuNameTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="cuAddr"><asp:Label CssClass="l" runat="server" Text="Customer Address"></asp:Label><br /><asp:TextBox ID="cuAddrTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="coName"><asp:Label CssClass="l" runat="server" Text="Contact Name"></asp:Label><br /><asp:TextBox ID="coNameTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="cuNum"><asp:Label CssClass="l" runat="server" Text="Contact Number"></asp:Label><br /><asp:TextBox ID="cuNumTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="orOpen"><asp:Label CssClass="l" runat="server" Text="Orders Open"></asp:Label><br /><asp:TextBox ID="orOpenTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="orSched"><asp:Label CssClass="l" runat="server" Text="Orders Scheduled"></asp:Label><br /><asp:TextBox ID="orSchedTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="orProg"><asp:Label CssClass="l" runat="server" Text="Orders In Progress"></asp:Label><br /><asp:TextBox ID="orProgTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                        <div id="orComp"><asp:Label CssClass="l" runat="server" Text="Orders Complete"></asp:Label><br /><asp:TextBox ID="orCompTextBox" CssClass="t" runat="server"></asp:TextBox></div>
 
-                <div><%--placeholder for data insert stuff--%>
+                        <div id="commit"><asp:Label CssClass="l" runat="server"></asp:Label><asp:Button ID="commitButton" CssClass="b" runat="server" Text="Commit" OnClick="commitButton_Click" /></div>
+                    </div>
 
                 </div>
 

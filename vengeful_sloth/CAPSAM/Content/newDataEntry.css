@@ -1,4 +1,19 @@
-﻿#cuId {
+.switch-btn {
+    color:white;
+    background-color:rgba(255,255,255,0.2);
+    font-size:36px;
+    border:unset !important;
+    position:static;
+    width:465px;
+    height:120px;
+}
+
+.switch-btn.b:hover {
+    background-color:rgba(255,255,255,0.3);
+}
+
+
+#cuId {
     position:absolute;
 	top:90px;
     left:0;
@@ -117,4 +132,64 @@
 	height:60px;
 	
 	font-size:32px;
+}
+
+.b, .t {
+    border:1px solid black;
+}
+
+.b {
+    -webkit-transition:linear 0.2s;
+       -moz-transition:linear 0.2s;
+         -o-transition:linear 0.2s;
+            transition:linear 0.2s;
+}
+
+.b:hover, .t:hover {
+    background-color:rgb(71, 59, 76);
+}
+
+.b:focus, .t:focus {
+    background-color:rgb(71, 59, 76);
+}
+
+
+
+
+
+
+.dg-id {
+    width:3.5vw;
+}
+
+.dg-name {
+    width:17.5vw;
+}
+
+.dg-addr {
+    width:17.5vw;
+}
+
+.dg-cname {
+    width:6vw;
+}
+
+.dg-cnum {
+    width:5vw;
+}
+
+.dg-oo {
+    width:4vw;
+}
+
+.dg-os {
+    width:5.5vw;
+}
+
+.dg-op {
+    width:5.5vw;
+}
+
+.dg-oc {
+    width:5vw;
 }

@@ -67,13 +67,12 @@ body {
     overflow:hidden;
 }
 
-.datagrid1 {
+#datagrid {
     overflow:auto;
     top:48px;
     left:1vw;
     position:absolute;
-    height:auto;
-    max-width:69.5vw;
+    height:100%;
     width:auto;
 }
 
@@ -86,9 +85,14 @@ body {
 }
 
 .datagrid-header {
-    text-align:center;
-    min-width:6ex;
     font-size:1.5vh;
+	text-align:center;
+
+    box-shadow:inset 0px 0px 0px 1px #666666;
+}
+
+.datagrid-rows {
+	background-color:red;
 }
 
 .datagrid-longitem,
@@ -97,15 +101,14 @@ body {
 }
 
 .datagrid-longitem {
-    min-width:18vw;
-    max-width:18vw;
     padding-left:1ex;
 }
 
 .datagrid-numberitem {
     text-align:center;
-    min-width:4vw;
 }
+
+
 
 
 
@@ -121,6 +124,7 @@ body {
 
     overflow:hidden;
 }
+
 
 
 /* Set widths on the form inputs since otherwise they're 100% wide */

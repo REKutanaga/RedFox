@@ -13,13 +13,31 @@ namespace CAPSAM {
     public partial class ViewData {
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// ModeSwitchUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.UpdatePanel ModeSwitchUpdatePanel;
+        
+        /// <summary>
+        /// ViewData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton ViewData;
+        
+        /// <summary>
+        /// ViewDataUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel ViewDataUpdatePanel;
         
         /// <summary>
         /// DataSearchLabel control.
@@ -49,13 +67,13 @@ namespace CAPSAM {
         protected global::System.Web.UI.WebControls.Button DataSearchButton;
         
         /// <summary>
-        /// GridView1 control.
+        /// DataGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::CAPSAM.CustomControls.ExGridView DataGridView;
         
         /// <summary>
         /// MySqlCustomerData control.

@@ -23,15 +23,23 @@ namespace CAPSAM
             searchString = DataSearchText.Text;
             MySqlCustomerData.SelectCommand = selectString + "('" + searchString + "');";
 
-            DataSearchLabel.Text = MySqlCustomerData.SelectCommand;
+            DataSearchLabel.Text = selectString + "('" + searchString + "');";
 
-            GridView1.DataBind();
-            UpdatePanel1.Update();
+            DataGridView.DataBind();
         }
 
         protected void commitButton_Click(object sender, EventArgs e)
         {
             MySqlCustomerData.Insert();
+            cuIdTextBox.Text = string.Empty;
+            cuNameTextBox.Text = string.Empty;
+            cuAddrTextBox.Text = string.Empty;
+            coNameTextBox.Text = string.Empty;
+            cuNumTextBox.Text = string.Empty;
+            orOpenTextBox.Text = string.Empty;
+            orSchedTextBox.Text = string.Empty;
+            orProgTextBox.Text = string.Empty;
+            orCompTextBox.Text = string.Empty;
         }
     }
 }

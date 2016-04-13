@@ -59,6 +59,7 @@ body {
     max-width:100vw;
     max-height:76.4vh;
     height:76.4vh;
+	min-height:76.4vh;
 
     padding:1vmin;
 
@@ -72,7 +73,7 @@ body {
     top:48px;
     left:1vw;
     position:absolute;
-    height:100%;
+    height:76.4vh;
     width:auto;
 }
 
@@ -88,7 +89,7 @@ body {
     font-size:1.5vh;
 	text-align:center;
 
-    box-shadow:inset 0px 0px 0px 1px #666666;
+    
 }
 
 .datagrid-rows {

@@ -30,7 +30,7 @@ namespace CAPSAM.CustomControls
 
         private String CalculateHeight()
         {
-            string strHeight = "200px";
+            string strHeight = "auto";
             if (!this.GridHeight.IsEmpty)
             {
                 strHeight = String.Format("{0}{1}", this.GridHeight.Value, ((this.GridHeight.Type == UnitType.Percentage) ? "%" : "px"));
@@ -41,7 +41,7 @@ namespace CAPSAM.CustomControls
         protected override void Render(HtmlTextWriter writer)
         {
             //render header row 
-            writer.Write("<table  border='0' cellspacing='" + this.CellSpacing.ToString() + "' cellpadding='" + this.CellPadding.ToString() + "' style='width:" + CalculateWidth() + "'>");
+            writer.Write("<table cellspacing='" + this.CellSpacing.ToString() + "' cellpadding='" + this.CellPadding.ToString() + "' style='width:" + CalculateWidth() + "'>");
             GridViewRow customHeader = this.HeaderRow;
 
             if (this.HeaderRow != null)
@@ -66,11 +66,11 @@ namespace CAPSAM.CustomControls
 
             //render data rows
             writer.Write("<div id='" + ClientID + "_div'  style='" +
-                             "padding-bottom:5px;overflow-x:hidden;overflow-y:scroll;" +
+                             "padding-bottom:0px;overflow-x:auto;overflow-y:auto;" +
 
                              "width:" + CalculateWidth() + ";" +
                              "height:" + CalculateHeight() + ";" +
-                             "background-color:#FFFFFF;'>");
+                             "background-color:transparent;'>");
 
             //get the pager row and make invisible
             GridViewRow customPager = this.BottomPagerRow;

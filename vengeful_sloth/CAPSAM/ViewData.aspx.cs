@@ -13,6 +13,16 @@ namespace CAPSAM
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void ViewDataButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void ModDataButton_Click(object sender, EventArgs e)
+        {
 
         }
 

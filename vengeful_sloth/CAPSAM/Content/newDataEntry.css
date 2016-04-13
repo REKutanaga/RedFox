@@ -12,6 +12,18 @@
     background-color:rgba(255,255,255,0.3);
 }
 
+.switch-btn.b:disabled {
+    background-color:rgba(255,255,255,0.2) !important;
+}
+
+#ViewDataLink {
+    color:black !important;
+}
+
+.grid-border {
+    box-shadow:inset 0px -10px 30px -10px #222222;
+    background-color:rgba(255,255,255,0.1);
+}
 
 #cuId {
     position:absolute;

@@ -8,7 +8,8 @@
         <ContentTemplate>
             <div>
                 <div>
-                    <b><button id="ViewData" runat="server" class="switch-btn b" onclick="ViewDataButton_click">View Data</button></b>
+                    <b><button id="ViewDataLink" runat="server" class="switch-btn b" onserverclick="ViewDataButton_Click">View Data</button></b>
+                    <b><button id="ModDataLink" runat="server" class="switch-btn b" onserverclick="ModDataButton_Click">Modify Data</button></b>
                 </div>
             </div>
         </ContentTemplate>
@@ -31,11 +32,11 @@
 
                     <div id="datagrid">
 
-                        <div>
+                        <div class="grid-border">
 
                             <ctrl:ExGridView ID="DataGridView" runat="server" DataSourceID="MySqlCustomerData" AutoGenerateColumns="False" 
                                 BackColor="White" BorderColor="#111111" BorderStyle="Solid" Gridlines="Both"
-                                BorderWidth="1px" CellPadding="4" DataKeyNames="ID" GridHeight="100%"
+                                BorderWidth="0px" CellPadding="4" DataKeyNames="ID" GridHeight="625px"
                                 ForeColor="Black" AllowSorting="True">
                                 <Columns>
                                     <asp:BoundField HeaderStyle-CssClass="dg-id datagrid-numberitem datagrid-header" ItemStyle-CssClass="dg-id datagrid-numberitem" DataField="ID" HeaderText="ID" SortExpression="ID" DataFormatString="{0:d6}" ReadOnly="True" />

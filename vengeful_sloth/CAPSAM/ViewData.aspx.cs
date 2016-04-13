@@ -13,17 +13,32 @@ namespace CAPSAM
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (ViewState["viewDataStyle"] != null && ViewState["modDataStyle"] != null)
+            {
+                viewDataContainer.Style["display"] = (string)ViewState["viewDataStyle"];
+                addDataContainer.Style["display"] = (string)ViewState["addDataStyle"];
+            }
+        }
+
+        protected void fadeEffect()
+        {
+            ScriptManager.RegisterStartupScript(ViewDataUpdatePanel, typeof(UpdatePanel), "fadein", "divfade('viewDataContainer', 500, true)", true);
         }
 
         protected void ViewDataButton_Click(object sender, EventArgs e)
         {
-            
+            addDataContainer.Style["display"] = "none";
+            viewDataContainer.Style["display"] = "block";
+
+            ViewDataUpdatePanel.Update();
         }
 
         protected void ModDataButton_Click(object sender, EventArgs e)
         {
+            addDataContainer.Style["display"] = "block";
+            viewDataContainer.Style["display"] = "none";
 
+            ViewDataUpdatePanel.Update();
         }
 
         protected void DataSearchButton_Click(object sender, EventArgs e)
@@ -36,6 +51,11 @@ namespace CAPSAM
             DataSearchLabel.Text = selectString + "('" + searchString + "');";
 
             DataGridView.DataBind();
+        }
+
+        protected void resetButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         protected void commitButton_Click(object sender, EventArgs e)

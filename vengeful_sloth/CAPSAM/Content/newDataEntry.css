@@ -1,3 +1,41 @@
+@-webkit-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+.datacontainer-fade {
+    opacity:0;
+    -webkit-animation:fadein linear 1;
+       -moz-animation:fadein linear 1;
+         -o-animation:fadein linear 1;
+            animation:fadein linear 1;
+
+    -webkit-animation-fill-mode:forwards;
+       -moz-animation-fill-mode:forwards;
+         -o-animation-fill-mode:forwards;
+            animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+       -moz-animation-duration:1s;
+         -o-animation-duration:1s;
+            animation-duration:1s;
+}
+
 .switch-btn {
     color:white;
     background-color:rgba(255,255,255,0.2);
@@ -21,7 +59,7 @@
 }
 
 .grid-border {
-    box-shadow:inset 0px -10px 30px -10px #222222;
+    box-shadow:inset 0px -12px 15px -10px rgba(0,0,0,0.4);
     background-color:rgba(255,255,255,0.1);
 }
 
@@ -97,6 +135,12 @@
 	text-align:left;
 }
 
+#reset {
+    position:absolute;
+    bottom:20px;
+    right:306px;
+}
+
 #commit {
 	position:absolute;
 	bottom:20px;
@@ -139,7 +183,7 @@
 	width:100px;
 }
 
-#commit .b {
+#commit .b, #reset .b {
 	width:200px;
 	height:60px;
 	

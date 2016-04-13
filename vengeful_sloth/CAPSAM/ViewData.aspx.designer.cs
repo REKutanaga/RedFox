@@ -49,6 +49,15 @@ namespace CAPSAM {
         protected global::System.Web.UI.UpdatePanel ViewDataUpdatePanel;
         
         /// <summary>
+        /// viewDataContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl viewDataContainer;
+        
+        /// <summary>
         /// DataSearchLabel control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace CAPSAM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource MySqlCustomerData;
+        
+        /// <summary>
+        /// addDataContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addDataContainer;
         
         /// <summary>
         /// cuIdTextBox control.
@@ -173,6 +191,15 @@ namespace CAPSAM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox orCompTextBox;
+        
+        /// <summary>
+        /// resetButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button resetButton;
         
         /// <summary>
         /// commitButton control.

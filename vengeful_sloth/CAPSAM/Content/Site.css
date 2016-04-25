@@ -1,19 +1,136 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
+html,body,form {
+    margin:0;
+    padding:0;
+    overflow:auto;
+    width:auto;
+    height:auto;
+}
+
+/* Move down content because we have a fixed navbar that is 60px tall */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: #291d2e;
-    color: #ffffff;
+    padding-top: 60px;
+    padding-bottom: 26px;
+    
+    background-image:url('../Images/vengeful_slothPurple.png');
+    background-color:#180c1d;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:90vmin;
+    background-position:right top;
+
+    color:#ffffff;
+}
+
+/* match with body padding-top */
+.bar-navbar {
+    height:60px;
+}
+
+/* match with .body-content padding-bottom */
+.sitefooter {
+        height:25px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: #291d2e;
+    margin:0;
+    padding:0;
     color: #ffffff;
+    min-width:100%;
+    width:auto;
+    height:auto;
+    overflow:hidden;
 }
+
+.body-container {
+    margin-top:15px;
+
+    position:static;
+    width:auto;
+    height:auto;
+
+    overflow:hidden;
+}
+
+.data-container {
+    background-color:rgba(255,255,255,0.2);
+
+    max-width:100vw;
+    max-height:76.4vh;
+    height:76.4vh;
+	min-height:76.4vh;
+
+    padding:1vmin;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+#viewDataContainer {
+	position:relative;
+}
+
+#viewDataGrid {
+    overflow:auto;
+    top:48px;
+    left:1vw;
+    position:absolute;
+    height:76.4vh;
+    width:auto;
+}
+
+.search-container {
+    position:absolute;
+    top:1vmin;
+    right:30vw;
+    text-align:right;
+    padding-bottom:1vmin;
+}
+
+.datagrid-header {
+    font-size:1.5vh;
+	text-align:center;
+
+    
+}
+
+.datagrid-rows {
+	background-color:red;
+}
+
+.datagrid-longitem,
+.datagrid-numberitem {
+    font-size:1.5vh;
+}
+
+.datagrid-longitem {
+    padding-left:1ex;
+}
+
+.datagrid-numberitem {
+    text-align:center;
+}
+
+
+
+
+
+.addData-container {
+    top:5px;
+    right:1vw;
+    max-width:27.5vw;
+    width:27.5vw;
+    height:76.4vh;
+    position:absolute;
+    
+    text-align:center;
+
+    overflow:hidden;
+}
+
+
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -24,22 +141,327 @@ textarea {
     color: #ffffff;
 }
 
-.btn-norm {
-    background-color: #5C3A5C;
-    color: #ffffff;
+.container .jumbotron {
+         background-color: rgba(255,255,255,0.2);
+                    color: #ffffff;
+
+    -webkit-border-radius:0px;
+       -moz-border-radius:0px;
+            border-radius:0px;  
+}
+
+.jumbotron-head {
+        display:inline-block;
+
+           text-align:center;
+}
+
+.jumbotron-head div {
+    display:inline-block;
+    padding-top:16px;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
-        background-color: #291d2e;
-        color: #ffffff;
+    .jumbotron-head {
+    background-color: rgba(255,255,255,0.2);
+               color: #ffffff;
+
+               position:static;
+
+               width:465px;
+               height:120px;
+}
+
+    .hide-behind {
+                height:200px;
+        padding-bottom:20px;
     }
 
-    .body-content {
-        padding: 0;
-        background-color: #291d2e;
-        color: #ffffff;
+    #navMain {
+        position:fixed;
+        left:120px;
     }
+
+    #active {
+        box-shadow: inset 0px -5px 0px 0px #888888;
+    }
+}
+
+/* for smaller views / mobile */
+@media screen and (max-width: 767px) {
+    .jumbotron-head {
+        position:fixed;
+        z-index:1200;
+
+        top:-25px;
+        left:65px;
+
+        color:#888888;
+    }
+
+    .hide-behind {
+                height:120px;
+        padding-bottom:20px;
+    }
+
+    .navbar-toggle {
+        left:10px;
+        top:4px;
+        border-radius:0px;
+        position:absolute;
+        width:auto;
+        height:auto;
+        text-align:center;
+    }
+
+    .navbar-toggle:hover {
+        background-color:transparent !important;
+    }
+
+    .navbar-toggle:focus {
+        background-color:transparent !important;
+    }
+
+    .icon-bar {
+        width:auto;
+        height:auto;
+        min-height:4px;
+    }
+
+    #nav {
+        margin:0;
+        padding:0;
+        width:100%;
+        border:1px solid black;
+        border-top:0;
+        background-color:#222222;
+        overflow:hidden;
+    }
+
+    #navMain {
+        margin-top:60px;
+        left:0;
+        border-top:0;
+        position: absolute;
+        box-shadow:unset;
+    }
+
+    .navbar li a {
+        border:0;
+        margin:0px;
+        text-align:left;
+        line-height:0;
+        height:30px;
+        background-clip:border-box;
+    }
+
+    #active {
+        box-shadow: inset 5px 0px 0px 0px #888888;
+    }
+}
+
+.sitefooter {
+    text-align:right;
+    text-indent:50px;
+    position:fixed;
+    overflow:hidden;
+    width:100%;
+    z-index:1000;
+    right:0px;
+    bottom:0px;
+    background-color:#222222;
+    border-top: 1px solid #000000;
+    color:#999999;
+    text-overflow:clip;
+    height:26px;
+}
+
+.sitefooter p {
+    position:absolute;
+    top:2px;
+    right:20px;
+}
+
+.navbar-brand {
+    color:#999999 !important;
+    position:fixed;
+    right:0;
+    margin:0;
+    padding-top:10px;
+    padding-right:10px;
+}
+
+.btn-norm {
+    background-color: #5C3A5C;
+    color: #ffffff;
+    border-radius: 0px 0px;
+}
+
+.btn-navbar {
+    height:60px;
+    border-bottom:1px solid black;
+}
+
+.bar-navbar {
+    border-bottom: 1px solid black;
+}
+
+#active {
+    background-color:#444444;
+    color:white;
+    
+}
+
+#active:hover {
+    background-color:#555555 !important;
+}
+
+#nav a {
+    background-clip:padding-box;
+    padding:18px;
+    width:auto;
+
+    border:unset !important;
+
+    -webkit-transition:0.04s;
+    -moz-transition:0.04s;
+    -o-transition:0.04s;
+    transition:0.04s;
+}
+
+#nav a:hover {
+    background-color:#333333;
+
+    color:white;
+}
+
+#loader {
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+      0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+      0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+      0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#mainDiv {
+     -webkit-animation: fadein 1s;
+        -moz-animation: fadein 1s;
+          -o-animation: fadein 1s;
+             animation: fadein 1s;
+}
+
+@-webkit-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+@keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }
+}
+
+
+/* animate toggle icon */
+.navbar-toggle {
+    border:none;
+    background:transparent !important;
+}
+
+.navbar-toggle:hover {
+    border:none;
+    background:transparent !important;
+}
+
+.navbar .navbar-toggle .icon-bar {
+    background-color:#888888;
+}
+
+.navbar-toggle .icon-bar {
+    min-width:30px !important;
+
+    -webkit-transition: all 0.2s;
+       -moz-transition: all 0.2s;
+         -o-transition: all 0.2s;
+            transition: all 0.2s;
+}
+
+.navbar-toggle .top-bar {
+
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+
+    -webkit-transform-origin:10% 10%;
+       -moz-transform-origin:10% 10%;
+         -o-transform-origin:10% 10%;
+            transform-origin:10% 10%;
+}
+
+.navbar-toggle .middle-bar {
+    opacity:0;
+}
+
+.navbar-toggle .bottom-bar {
+
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.navbar-toggle.collapsed .icon-bar {
+    min-width:22px !important;
+}
+
+.navbar-toggle.collapsed .top-bar {
+    transform:rotate(0);
+}
+
+.navbar-toggle.collapsed .middle-bar {
+    opacity:1;
+}
+
+.navbar-toggle.collapsed .bottom-bar {
+    transform:rotate(0);
 }

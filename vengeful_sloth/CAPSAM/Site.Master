@@ -57,9 +57,9 @@
                 <div id="navMain" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" id="nav" runat="server">
                         <li><a id="link1" runat="server" class="btn-navbar" href="~/Default">Home</a></li>
-                        <li><a id="link2" runat="server" class="btn-navbar" href="~/About">About</a></li>
-                        <li><a id="link3" runat="server" class="btn-navbar" href="~/Contact">Contact</a></li>
-                        <li><a id="link4" runat="server" class="btn-navbar" href="~/ViewData">View Data</a></li>
+                        <%--<li><a id="link2" runat="server" class="btn-navbar" href="~/About">About</a></li>
+                        <li><a id="link3" runat="server" class="btn-navbar" href="~/Contact">Contact</a></li>--%>
+                        <li><a id="link4" runat="server" class="btn-navbar" href="~/ViewData">Customer Data</a></li>
                     </ul>
                 </div>
             </div>

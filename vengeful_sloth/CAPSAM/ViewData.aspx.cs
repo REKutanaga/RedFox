@@ -1,28 +1,32 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Drawing;
+using System.Text;
 
 namespace CAPSAM
 {
     public partial class ViewData : System.Web.UI.Page
     {
-        string selectString = "CALL get_data_at_id_name_addr_with_aliases";
+        string selectString = "CALL match_customer_info";
+
+        //public string hexColSel = "\"#A1DCF2\"";
+        public string hexColSel = "\"#0066ff\"";
+        public string hexColMain = "\"#FFFFFF\"";
+        public string hexColAlt = "\"#D5D5D5\"";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (ViewState["viewDataStyle"] != null && ViewState["modDataStyle"] != null)
-            {
-                viewDataContainer.Style["display"] = (string)ViewState["viewDataStyle"];
-                addDataContainer.Style["display"] = (string)ViewState["addDataStyle"];
-            }
         }
 
         protected void fadeEffect()
         {
-            ScriptManager.RegisterStartupScript(ViewDataUpdatePanel, typeof(UpdatePanel), "fadein", "divfade('viewDataContainer', 500, true)", true);
+            //ScriptManager.RegisterStartupScript(ViewDataUpdatePanel, typeof(UpdatePanel), "fadein", "divfade('viewDataContainer', 500, true)", true);
         }
 
         protected void ViewDataButton_Click(object sender, EventArgs e)
@@ -64,12 +68,35 @@ namespace CAPSAM
             cuIdTextBox.Text = string.Empty;
             cuNameTextBox.Text = string.Empty;
             cuAddrTextBox.Text = string.Empty;
-            coNameTextBox.Text = string.Empty;
-            cuNumTextBox.Text = string.Empty;
-            orOpenTextBox.Text = string.Empty;
-            orSchedTextBox.Text = string.Empty;
-            orProgTextBox.Text = string.Empty;
-            orCompTextBox.Text = string.Empty;
+        }
+
+        /* BELOW IS FOR ROW HIGHLIGHTING AND SELECTION */
+
+        protected void OnRowDataBound( object sender, GridViewRowEventArgs e ) {
+            if( e.Row.RowType == DataControlRowType.DataRow ) {
+                e.Row.Attributes.Add( "onmouseover", "MouseEvents(this, event)" );
+                e.Row.Attributes.Add( "onmouseout", "MouseEvents(this, event)" );
+                e.Row.Attributes.Add( "onmousedown", "MouseEvents(this, event)" );
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink( DataGridView, "Select$" + e.Row.RowIndex );
+                e.Row.ToolTip = "Click to select this row.";
+            }
+        }
+
+        protected void OnSelectedIndexChanged( object sender, EventArgs e ) {
+            foreach( GridViewRow row in DataGridView.Rows ) {
+                if( row.RowIndex == DataGridView.SelectedIndex ) {
+                    row.BackColor = ColorTranslator.FromHtml( hexColSel );
+                    row.ToolTip = string.Empty;
+                    ScriptManager.RegisterClientScriptBlock( this, this.GetType(), "ChangeRowID", $"rowID = {row.RowIndex}", true );
+                } else {
+                    if( row.RowIndex % 2 == 1 ) {
+                        row.BackColor = ColorTranslator.FromHtml( hexColAlt );
+                    } else {
+                        row.BackColor = ColorTranslator.FromHtml( hexColMain );
+                    }
+                    row.ToolTip = "Click to select this row.";
+                }
+            }
         }
     }
 }

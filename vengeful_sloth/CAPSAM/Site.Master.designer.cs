@@ -40,24 +40,6 @@ namespace CAPSAM {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor link1;
         
         /// <summary>
-        /// link2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link2;
-        
-        /// <summary>
-        /// link3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link3;
-        
-        /// <summary>
         /// link4 control.
         /// </summary>
         /// <remarks>

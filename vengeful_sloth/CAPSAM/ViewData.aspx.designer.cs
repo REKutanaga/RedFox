@@ -58,6 +58,24 @@ namespace CAPSAM {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl viewDataContainer;
         
         /// <summary>
+        /// addNewBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addNewBtn;
+        
+        /// <summary>
+        /// delBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button delBtn;
+        
+        /// <summary>
         /// DataSearchLabel control.
         /// </summary>
         /// <remarks>
@@ -139,31 +157,76 @@ namespace CAPSAM {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl addDataContainer;
         
         /// <summary>
-        /// cuIdTextBox control.
+        /// idLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cuIdTextBox;
+        protected global::System.Web.UI.WebControls.Label idLabel;
         
         /// <summary>
-        /// cuNameTextBox control.
+        /// nameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cuNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox nameTextBox;
         
         /// <summary>
-        /// cuAddrTextBox control.
+        /// addressTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cuAddrTextBox;
+        protected global::System.Web.UI.WebControls.TextBox addressTextBox;
+        
+        /// <summary>
+        /// cityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cityTextBox;
+        
+        /// <summary>
+        /// stateTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox stateTextBox;
+        
+        /// <summary>
+        /// zipcodeTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox zipcodeTextBox;
+        
+        /// <summary>
+        /// creditTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox creditTextBox;
+        
+        /// <summary>
+        /// termsTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox termsTextBox;
         
         /// <summary>
         /// resetButton control.

@@ -7,36 +7,34 @@
     <script type = "text/javascript"> 
         var ref = null, rowID = -1;
 
+        function pageLoad() {
+
+        }
+
         function MouseEvents(objRef, evt)
         {
-            var True = true; False = false, ref = objRef, colSel = <%=hexColSel%>;
+            var True = true; False = false, ref = objRef;
    
-            if(evt.type == "mouseout")
+            if(ref.rowIndex != rowID) 
             {
-                
-                //alert(rowID);
-                if(ref.rowIndex == rowID)
-                {
-                    ref.style.backgroundColor = <%=hexColSel%>;
-                }
-                else
+                if(evt.type == "mouseout")
                 {
                     if(ref.rowIndex % 2 == 1)
                     {
-                      //Alternating Row Color
+                        //Alternating Row Color
                         ref.style.backgroundColor = <%=hexColAlt%>;
-                        }
-                        else
-                        {
+                    }
+                    else
+                    {
                         ref.style.backgroundColor = <%=hexColMain%>;
                     }
                 }
+                else if(evt.type == "mouseover")
+                {
+                    ref.style.backgroundColor = "orange";
+                }
             }
-            else if(evt.type == "mouseover" && ref.rowIndex != rowID)
-            {
-                ref.style.backgroundColor = "orange";
-            }
-            else if(evt.type == "mousedown")
+            else
             {
                 ref.style.backgroundColor = <%=hexColSel%>;
             }
@@ -47,8 +45,8 @@
         <ContentTemplate>
             <div>
                 <div>
-                    <b><button id="ViewDataLink" runat="server" class="switch-btn b" onserverclick="ViewDataButton_Click">View Data</button></b>
-                    <b><button id="ModDataLink" runat="server" class="switch-btn b" onserverclick="ModDataButton_Click">Add/Modify Data</button></b>
+                    <b><button visible="false" id="ViewDataLink" runat="server" class="switch-btn b" onserverclick="ViewDataButton_Click">View Data</button></b>
+                    <b><button visible="false" id="ModDataLink" runat="server" class="switch-btn b" onserverclick="ModDataButton_Click">Add/Modify Data</button></b>
                 </div>
             </div>
         </ContentTemplate>
@@ -62,6 +60,9 @@
                 <div class="data-container">
 
                     <div id="viewDataContainer" class="" style="display:block;" runat="server">
+
+                        <asp:Button ID="addNewBtn" CssClass="b button-anim" runat="server" Text="New Customer" OnClick="NewCustomer_Click" />
+                        <asp:Button ID="delBtn" CssClass="b button-anim" runat="server" Text="Delete Customer" OnClick="DeleteCustomer_Click" />
 
                         <div class="search-container">
                                 <asp:Label ID="DataSearchLabel" CssClass="l" runat="server" Text=""></asp:Label>
@@ -105,21 +106,27 @@
              
                                 <asp:SqlDataSource ID="MySqlCustomerData" runat="server" 
                                     ConnectionString="server=localhost;user id=remotecustomer;persistsecurityinfo=True;database=capsamtst;password=remotecustomer" 
-                                    ProviderName="MySql.Data.MySqlClient" SelectCommand="CALL match_customer_info('');">
+                                    ProviderName="MySql.Data.MySqlClient" SelectCommand="CALL match_customer_info('');" InsertCommand="CALL new_customer_row">
                                 </asp:SqlDataSource>
                     
                             </div>
+
 
                         </div>
 
                     </div>
 
-                    <div id="addDataContainer" class="" style="display:none;" runat="server">
+                    <div id="addDataContainer" class="" style="display:normal;" runat="server">
 
                         <div class="addData-container"><h1>Add/Modify Entry</h1><hr />
-                            <div id="cId"><asp:Label CssClass="l" runat="server" Text="Customer ID"></asp:Label><br /><asp:TextBox ID="cuIdTextBox" CssClass="t" runat="server"></asp:TextBox></div>
-                            <div id="cName"><asp:Label CssClass="l" runat="server" Text="Customer Name"></asp:Label><br /><asp:TextBox ID="cuNameTextBox" CssClass="t" runat="server"></asp:TextBox></div>
-                            <div id="cAddr"><asp:Label CssClass="l" runat="server" Text="Customer Address"></asp:Label><br /><asp:TextBox ID="cuAddrTextBox" CssClass="t" runat="server"></asp:TextBox></div>
+                            <div id="did"><asp:Label CssClass="l" runat="server" Text="ID = "></asp:Label><asp:Label ID="idLabel" CssClass="l" runat="server" Text="Null"></asp:Label></div><br />
+                            <div id="dname"><asp:Label CssClass="l" runat="server" Text="Name"></asp:Label><br /><asp:TextBox ID="nameTextBox" CssClass="t" runat="server"></asp:TextBox></div><br />
+                            <div id="daddress"><asp:Label CssClass="l" runat="server" Text="Address"></asp:Label><br /><asp:TextBox ID="addressTextBox" CssClass="t" runat="server"></asp:TextBox></div><br />
+                            <div id="dcity"><asp:Label CssClass="l" runat="server" Text="City"></asp:Label><br /><asp:TextBox ID="cityTextBox" CssClass="t" runat="server"></asp:TextBox></div><br />
+                            <div id="dstate"><asp:Label CssClass="l" runat="server" Text="State"></asp:Label><br /><asp:TextBox ID="stateTextBox" CssClass="t" runat="server"></asp:TextBox></div><br />
+                            <div id="dzipcode"><asp:Label CssClass="l" runat="server" Text="ZIP Code"></asp:Label><br /><asp:TextBox ID="zipcodeTextBox" CssClass="t" runat="server"></asp:TextBox></div><br />
+                            <div id="dcredit"><asp:Label CssClass="l" runat="server" Text="Credit Limit"></asp:Label><br /><asp:TextBox ID="creditTextBox" CssClass="t" runat="server"></asp:TextBox></div><br />
+                            <div id="dterms"><asp:Label CssClass="l" runat="server" Text="Terms"></asp:Label><br /><asp:TextBox ID="termsTextBox" CssClass="t" runat="server"></asp:TextBox></div>
 
                             <div id="reset"><asp:Label CssClass="l" runat="server"></asp:Label><asp:Button ID="resetButton" CssClass="b button-anim" runat="server" Text="Reset" OnClick="resetButton_Click" /></div>
                             <div id="commit"><asp:Label CssClass="l" runat="server"></asp:Label><asp:Button ID="commitButton" CssClass="b button-anim" runat="server" Text="Commit" OnClick="commitButton_Click" /></div>
@@ -131,7 +138,7 @@
 
             </ContentTemplate>
 
-            <Triggers>
+           <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="ViewDataLink" />
                 <asp:AsyncPostBackTrigger ControlID="ModDataLink" />
             </Triggers>
